@@ -15,6 +15,7 @@ import { useDispatch } from 'react-redux';
 import { UIGuest, Feedback, FormField } from '../../types';
 import { formatName } from '../../utils/formatName';
 import { addFeedback } from '../../reducers/partyReducer';
+import AddedFields from './AddedFields';
 
 
 const initialValues = {
@@ -99,22 +100,7 @@ const FeedBackForm = ({ guest, showFieldForm }: { guest: UIGuest, showFieldForm:
             display: 'flex',
             flexDirection: 'column'
           }} >
-          {formFields && formFields.map(field => {
-            return (
-              <FormControl key={field.name}>
-                <Typography component="label" variant="overline" color="text.primary" sx={{ fontWeight: 'bold' }}>
-                 {field.name}
-                </Typography>
-                <OutlinedInput id={field.id} name={field.name} 
-                  sx={{ backgroundColor: "white" }}
-                  value=''
-                  onChange={formik.handleChange}
-                />
-              </FormControl>
-            )
-          })
-
-          }
+          <AddedFields formFields={formFields}  handleChange={formik.handleChange}/>
           <Typography variant="overline" color="text.primary" gutterBottom sx={{ fontWeight: "bold" }}>
             Name
           </Typography>
