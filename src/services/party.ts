@@ -1,14 +1,11 @@
 import { apiBaseUrl } from "../constants";
+import axios from 'axios';
 
-const getResource = async (querry: string) => {
+export const getResource = async (querry: string) => {
   try {
-    const response = await fetch(apiBaseUrl + querry);
-    return await response.json();
+    const { data } = await axios.get(apiBaseUrl + querry);
+    return data;
   } catch (error) {
     console.log(error);
   }
 };
-
-const partyServise = { getResource };
-
-export default partyServise;

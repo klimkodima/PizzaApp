@@ -1,47 +1,27 @@
-export interface BaseGuest {
+export interface Guest {
     name: string;
     eatsPizza: boolean;
 };
 
-export interface GuestWithDiet extends  BaseGuest  {
+export interface UIGuest extends Guest  {
     isVegan: boolean;
-};
-
-export interface GuestWithOrder extends  GuestWithDiet  {
-    order: number;
-};
-
-export interface Currency {
-    USD: number;
-    BYN: number;
-    EUR: number;
-};
-
-export interface ColaOrderFromApi {
-    qty: string;
-    sugar: string;
-    price: string;
-};
-
-export enum PizzaType {
-    Vegan = "vegan",
-    Meat = "meat",
-    Cheese = "cheese"
-};
-
-export interface PizzaOrderFromApi {
-    type: PizzaType;
-    name: string,
-    price: string;
-};
-
-export interface Order {
-    totalOrder: number;
-    moneyToCollect: number;
-    collectedMoney: number;
+    id: number;
+    feedback?: Feedback;
 };
 
 export interface Diet {
     name: string;
     isVegan: boolean
+};
+
+export interface Feedback {
+    phone: string;
+    rating: number;
+    comment: string;
+};
+
+export interface FormField {
+    id: string;
+    type: string;
+    name: string;
 };
