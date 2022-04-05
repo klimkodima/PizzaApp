@@ -98,6 +98,7 @@ const FieldForm = ({handleSubmit, onClose}: Props) => {
               type="submit"
               fullWidth
               variant="contained"
+              data-testid="saveButton"
               sx={{
                 mt: 3, mb: 2, textTransform: 'uppercase', background: 'green',
                 '&:hover': {
@@ -114,6 +115,5 @@ const FieldForm = ({handleSubmit, onClose}: Props) => {
     </Box>
   );
 }
-
 
 export default FieldForm;
